@@ -4,7 +4,7 @@ var mainGameLoop = window.setInterval(function() {
     } else if ((player.time > 60) && (player.time < 3600)) {
         document.getElementById("time").innerHTML = `${Math.floor(player.time / 60)} minutes and ${Math.floor(player.time % 60)} seconds.`;
     } else if ((player.time > 3600) && (player.time < 86400)) {
-        document.getElementById("time").innerHTML = `${Math.floor(player.time / 3600)} hours, ${Math.floor((player.time / 60) % 60)}, minutes ${Math.floor(player.time % 60)} and seconds`;
+        document.getElementById("time").innerHTML = `${Math.floor(player.time / 3600)} hours, ${Math.floor((player.time / 60) % 60)} minutes and ${Math.floor(player.time % 60)} seconds`;
     } else if ((player.time > 86400) && (player.time < 31536000)) {
         document.getElementById("time").innerHTML = `${Math.floor(player.time / 86400)} days, ${Math.floor((player.time / 3600) % 24)} hours, ${Math.floor((player.time / 60) % 60)} minutes and ${Math.floor(player.time % 60)} seconds`;
     } else {
