@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="OmegaNum.js"></script>
+        <script src="main.js" defer></script>
+        <script src="ui.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="font-family: 'Times New Roman', Times, serif; background-color: #BBBBBB;">
+        <div class="help" tooltip="Probability must be bigger than target to earn money.">i</div>
+        <p id="time"></p>
+        <p id="money"></p>
+        <p id="chance"></p>
+        <br>
+        <button onclick="add()" id="trymoney"></button>
+        <p id="wait"></p>
+        <br>
+        <button onclick="upgrade1()" id="upgrade1"></button>
+        <button onclick="upgrade2()" id="upgrade2"></button>
+        <button onclick="upgrade3()" id="upgrade3"></button>
+        <button onclick="upgrade4()" id="upgrade4"></button>
+        <div id="tooltip"></div>
+        <br>
+        <br>
+        <button onclick="reset()">Reset Progress</button>
+    </body>
+</html>
