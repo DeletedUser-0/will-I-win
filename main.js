@@ -99,29 +99,32 @@ function upgrade4() {
     if (OmegaNum.cmp(player.time, player.upgrade4.cost) >= 0) {
         player.upgrade4.level += 1;
         player.upgrade4.cost = OmegaNum.mul(player.upgrade4.cost, 1.01).add(60);
-        player.money.receive = OmegaNum.pow(player.money.receive, 1.02).mul(1.01);
+        player.money.receive = OmegaNum.pow(player.money.receive, 1.01).mul(1.01);
     };
 };
 
 function reset() {
-    player.time = 0;
-    player.money.total = 0;
-    player.money.receive = 1;
-    player.money.multiplier = 1.01;
-    player.money.chance = 95;
-    player.money.sleep = 3000;
-    player.result = 0;
-    player.upgrade1.cost = 1;
-    player.upgrade1.level = 0;
-    player.upgrade2.cost = 10;
-    player.upgrade2.level = 0;
-    player.upgrade2.effect = 3000;
-    player.upgrade3.bought = false;
-    player.upgrade4.cost = 60;
-    player.upgrade4.level = 0;
-    document.getElementById("upgrade3").style.backgroundColor = `white`;
-    player.times = 0;
-    player.time = 0;
+    var r = confirm("Are you sure do you want to reset?");
+        if (r == true) {
+        player.time = 0;
+        player.money.total = 0;
+        player.money.receive = 1;
+        player.money.multiplier = 1.01;
+        player.money.chance = 95;
+        player.money.sleep = 3000;
+        player.result = 0;
+        player.upgrade1.cost = 1;
+        player.upgrade1.level = 0;
+        player.upgrade2.cost = 10;
+        player.upgrade2.level = 0;
+        player.upgrade2.effect = 3000;
+        player.upgrade3.bought = false;
+        player.upgrade4.cost = 60;
+        player.upgrade4.level = 0;
+        document.getElementById("upgrade3").style.backgroundColor = `white`;
+        player.times = 0;
+        player.time = 0;
+    };
 };
 
 function Save() {
