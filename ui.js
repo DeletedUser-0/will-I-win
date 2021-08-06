@@ -74,7 +74,7 @@ function notate(n = new OmegaNum(0)) {
     if (!n.array[1]) {
         let e = Math.floor(Math.log10(n.array[0]));
         let m = n.array[0] / 10 ** e;
-        return e < 3 ? n.toPrecision(3) : `${Math.floor(n).toLocaleString("pt-BR")}`;
+        return e < 3 ? n.toPrecision(3) : `${Math.floor(n).toLocaleString("pt-PT")}`;
     } else if (n.array[1] < 2) { 
         return `${Math.pow(10, n.array[0] - Math.floor(n.array[0])).toPrecision(3)}x10<sup>${Math.floor(n.array[0]).toLocaleString("pt-BR")}</sup>`;
     } else {
@@ -92,7 +92,7 @@ function notate2(n = new OmegaNum(0)) {
     if (!n.array[1]) {
         let e = Math.floor(Math.log10(n.array[0]));
         let m = n.array[0] / 10 ** e;
-        return e < 3 ? n.toFixed(2) : `${Math.floor(n).toLocaleString("pt-BR")}`;
+        return e < 3 ? n.toFixed(2) : `${Math.floor(n).toLocaleString("pt-PT")}`;
     } else if (n.array[1] < 2) { 
         return `${Math.pow(10, n.array[0] - Math.floor(n.array[0])).toPrecision(3)}x10<sup>${Math.floor(n.array[0]).toLocaleString("pt-BR")}</sup>`;
     } else {
