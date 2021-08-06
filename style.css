@@ -67,3 +67,9 @@ button {
     visibility: visible;
     opacity: 1;
   }
+
+#upgrades {
+	text-align: center;
+	position: relative;
+	bottom: 33px;
+}
