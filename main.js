@@ -29,8 +29,13 @@ class Player {
         };
 
         this.upgrade4 = {
-            cost: data?.upgrade4?.cost || 60,
+            cost: data?.upgrade4?.cost || 600,
             level: data?.upgrade4?.level || 0,
+        };
+
+        this.upgrade5 = {
+            cost: data?.upgrade5?.cost || 1000000,
+            level: data?.upgrade5?.level || 0,
         };
     };
 };
@@ -47,7 +52,7 @@ var mainGameLoop = window.setInterval(function() {
     if (OmegaNum.cmp(player.money.sleep, 0) < 0) {
         player.money.sleep = 0;
     };
-    player.upgrade2.effect = OmegaNum.pow(3000, OmegaNum.pow(0.996, player.upgrade2.level));
+    player.upgrade2.effect = OmegaNum.pow(3000, OmegaNum.pow(0.994, player.upgrade2.level));
     if (player.upgrade3.bought == true) {
         add();
     };
@@ -63,7 +68,7 @@ function add() {
         player.money.sleep = new OmegaNum(player.upgrade2.effect);
         player.times += 1;
         if (OmegaNum.cmp(player.result, player.money.chance) >= 0) {
-            player.money.total = OmegaNum.add(player.money.total, player.money.receive).toFixed(2);
+            player.money.total = OmegaNum.add(player.money.total, player.money.receive);
             player.money.receive = OmegaNum.times(player.money.receive, player.money.multiplier);
         };
     };
@@ -72,7 +77,7 @@ function add() {
 function upgrade1() {
     if (OmegaNum.cmp(player.money.total, player.upgrade1.cost) >= 0) {
         player.money.total = OmegaNum.sub(player.money.total, player.upgrade1.cost).toFixed(2);
-        player.upgrade1.cost = OmegaNum.pow(player.upgrade1.cost, 1.06).times(1.01).toFixed(2);
+        player.upgrade1.cost = OmegaNum.pow(player.upgrade1.cost, 1.06).times(1.01);
         player.money.chance = OmegaNum.div(player.money.chance, OmegaNum.add(OmegaNum.div(0.02, OmegaNum.add(OmegaNum.div(player.upgrade1.level, 20), 1)), 1));
         player.upgrade1.level = Math.floor(OmegaNum.add(player.upgrade1.level, 1)).toLocaleString("pt-PT");
     };
@@ -80,7 +85,7 @@ function upgrade1() {
 
 function upgrade2() {
     if (OmegaNum.cmp(player.money.total, player.upgrade2.cost) >= 0) {
-        player.money.total = OmegaNum.sub(player.money.total, player.upgrade2.cost).toFixed(2);
+        player.money.total = OmegaNum.sub(player.money.total, player.upgrade2.cost);
         player.upgrade2.cost = OmegaNum.pow(player.upgrade2.cost, 1.075);
         player.upgrade2.level = Math.floor(OmegaNum.add(player.upgrade2.level, 1)).toLocaleString("pt-PT");
     };
@@ -98,8 +103,17 @@ function upgrade3() {
 function upgrade4() {
     if (OmegaNum.cmp(player.time, player.upgrade4.cost) >= 0) {
         player.upgrade4.level += 1;
-        player.upgrade4.cost = OmegaNum.mul(player.upgrade4.cost, 1.01).add(60);
-        player.money.receive = OmegaNum.pow(player.money.receive, 1.01).mul(1.01);
+        player.upgrade4.cost = OmegaNum.mul(player.upgrade4.cost, 1.02).add(60);
+        player.money.receive = OmegaNum.mul(player.money.receive, 1.02);
+    };
+};
+
+function upgrade5() {
+    if (OmegaNum.cmp(player.time, player.upgrade5.cost) >= 0) {
+        player.money.total = OmegaNum.sub(player.money.total, player.upgrade5.cost);
+        player.upgrade5.level += 1;
+        player.upgrade5.cost = OmegaNum.mul(player.upgrade5.cost, 10)
+        player.money.receive = OmegaNum.mul(player.money.receive, 2);
     };
 };
 
@@ -119,11 +133,13 @@ function reset() {
         player.upgrade2.level = 0;
         player.upgrade2.effect = 3000;
         player.upgrade3.bought = false;
-        player.upgrade4.cost = 60;
+        player.upgrade4.cost = 600;
         player.upgrade4.level = 0;
         document.getElementById("upgrade3").style.backgroundColor = `white`;
         player.times = 0;
         player.time = 0;
+        player.upgrade5.cost = 1e6;
+        player.upgrade5.level = 0;
     };
 };
 
