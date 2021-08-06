@@ -47,25 +47,25 @@ var mainGameLoop = window.setInterval(function() {
     ///////
 
     if (player.upgrade1.level > 0) {
-        document.getElementById("upgrade2").style.display = "block";
+        document.getElementById("upgrade2").style.display = "inline-block";
     } else {
         document.getElementById("upgrade2").style.display = "none";
     };
 
     if (player.upgrade2.level > 0) {
-        document.getElementById("upgrade3").style.display = "block";
+        document.getElementById("upgrade3").style.display = "inline-block";
     } else {
         document.getElementById("upgrade3").style.display = "none";
     };
 
     if (player.upgrade3.level > 0) {
-        document.getElementById("upgrade4").style.display = "block";
+        document.getElementById("upgrade4").style.display = "inline-block";
     } else {
         document.getElementById("upgrade4").style.display = "none";
     };
 
     if (player.upgrade4.level > 0) {
-        document.getElementById("upgrade5").style.display = "block";
+        document.getElementById("upgrade5").style.display = "inline-block";
     } else {
         document.getElementById("upgrade5").style.display = "none";
     };
