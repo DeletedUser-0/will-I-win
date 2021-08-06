@@ -42,6 +42,33 @@ var mainGameLoop = window.setInterval(function() {
     } else {
         document.getElementById("upgrade4").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade4.cost / 31536000)} y, ${Math.floor(player.upgrade4.cost / 86400) % 365} d, ${Math.floor((player.upgrade4.cost / 3600) % 24)} hr, ${Math.floor((player.upgrade4.cost / 60) % 60)} min and ${Math.floor(player.upgrade4.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade4.level).toLocaleString("pt-PT")}`;
     }
+    document.getElementById("upgrade5").innerHTML = `Receive twice as more money as you try to receive now <br> Cost: ${notate(player.upgrade5.cost)}$<br> Level: ${Math.floor(player.upgrade5.level).toLocaleString("pt-PT")}`;
+
+    ///////
+
+    if (player.upgrade1.level > 0) {
+        document.getElementById("upgrade2").style.display = "block";
+    } else {
+        document.getElementById("upgrade2").style.display = "none";
+    };
+
+    if (player.upgrade2.level > 0) {
+        document.getElementById("upgrade3").style.display = "block";
+    } else {
+        document.getElementById("upgrade3").style.display = "none";
+    };
+
+    if (player.upgrade3.level > 0) {
+        document.getElementById("upgrade4").style.display = "block";
+    } else {
+        document.getElementById("upgrade4").style.display = "none";
+    };
+
+    if (player.upgrade4.level > 0) {
+        document.getElementById("upgrade5").style.display = "block";
+    } else {
+        document.getElementById("upgrade5").style.display = "none";
+    };
 }, 0);
 
 (() => {
@@ -76,7 +103,7 @@ function notate(n = new OmegaNum(0)) {
         let m = n.array[0] / 10 ** e;
         return e < 3 ? n.toPrecision(3) : `${Math.floor(n).toLocaleString("pt-PT")}`;
     } else if (n.array[1] < 2) { 
-        return `${Math.pow(10, n.array[0] - Math.floor(n.array[0])).toPrecision(3)}x10<sup>${Math.floor(n.array[0]).toLocaleString("pt-BR")}</sup>`;
+        return `${Math.pow(10, n.array[0] - Math.floor(n.array[0])).toPrecision(3)}x10<sup>${Math.floor(n.array[0]).toLocaleString("pt-PT")}</sup>`;
     } else {
         return `${"e".repeat(n.array[1])}${Math.floor(n.array[0])}`;
     };
