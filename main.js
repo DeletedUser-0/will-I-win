@@ -73,7 +73,7 @@ function upgrade1() {
     if (OmegaNum.cmp(player.money.total, player.upgrade1.cost) >= 0) {
         player.money.total = OmegaNum.sub(player.money.total, player.upgrade1.cost).toFixed(2);
         player.upgrade1.cost = OmegaNum.pow(player.upgrade1.cost, 1.06).times(1.01).toFixed(2);
-        player.money.chance = OmegaNum.div(player.money.chance, OmegaNum.add(OmegaNum.div(0.02, OmegaNum.add(OmegaNum.div(player.upgrade1.level, 15), 1)), 1));
+        player.money.chance = OmegaNum.div(player.money.chance, OmegaNum.add(OmegaNum.div(0.02, OmegaNum.add(OmegaNum.div(player.upgrade1.level, 20), 1)), 1));
         player.upgrade1.level = Math.floor(OmegaNum.add(player.upgrade1.level, 1)).toLocaleString("pt-PT");
     };
 };
