@@ -60,6 +60,9 @@ var mainGameLoop = window.setInterval(function() {
         player.upgrade4.cost = player.upgrade4.cost.array[0];
     };
     player.time = OmegaNum.add(player.time, 0.007);
+    /// makes part of 1st upgrade
+    player.money.chance = OmegaNum.div(95, OmegaNum.pow(1.0106, player.upgrade1.level));
+    /// end
 }, 7);
 
 function add() {
@@ -78,7 +81,6 @@ function upgrade1() {
     if (OmegaNum.cmp(player.money.total, player.upgrade1.cost) >= 0) {
         player.money.total = OmegaNum.sub(player.money.total, player.upgrade1.cost);
         player.upgrade1.cost = OmegaNum.pow(player.upgrade1.cost, 1.04).times(1.009);
-        player.money.chance = OmegaNum.div(player.money.chance, 1.0106);
         player.upgrade1.level = Math.floor(OmegaNum.add(player.upgrade1.level, 1)).toLocaleString("pt-PT");
     };
 };
