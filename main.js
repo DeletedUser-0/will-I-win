@@ -63,6 +63,10 @@ var mainGameLoop = window.setInterval(function() {
     /// makes part of 1st upgrade
     player.money.chance = OmegaNum.div(95, OmegaNum.pow(1.0106, player.upgrade1.level));
     /// end
+
+    if (OmegaNum.cmp(player.money.total, 1e6) >= 0) {
+        player.money.multiplier = OmegaNum.div(0.01, OmegaNum.pow(OmegaNum.sub(OmegaNum.log10(player.money.total), 5), 0.7)).add(1);
+    }
 }, 7);
 
 function add() {
@@ -96,7 +100,11 @@ function upgrade2() {
 function upgrade3() {
     if (OmegaNum.cmp(player.time, player.upgrade3.cost) >= 0) {
         player.upgrade3.level += 1;
-        player.upgrade3.cost = OmegaNum.mul(player.upgrade3.cost, 1.02).add(60);
+        if (OmegaNum.cmp(player.upgrade3.cost, 86400) < 0) {
+            player.upgrade3.cost = OmegaNum.mul(player.upgrade3.cost, 1.02).add(60);
+        } else {
+            player.upgrade3.cost = OmegaNum.mul(player.upgrade3.cost, 1.1);
+        };
         player.money.receive = OmegaNum.mul(player.money.receive, OmegaNum.pow(1.02, OmegaNum.div(player.times, 200)));
     };
 };
@@ -114,7 +122,7 @@ function upgrade5() {
     if (OmegaNum.cmp(player.money.total, player.upgrade5.cost) >= 0) {
         player.money.total = OmegaNum.sub(player.money.total, player.upgrade5.cost);
         player.upgrade5.level += 1;
-        player.upgrade5.cost = OmegaNum.mul(player.upgrade5.cost, 10);
+        player.upgrade5.cost = OmegaNum.mul(1e6, OmegaNum.pow(1000, player.upgrade5.level));
         player.money.receive = OmegaNum.mul(player.money.receive, 2);
     };
 };
