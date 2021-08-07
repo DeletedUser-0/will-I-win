@@ -53,7 +53,7 @@ var mainGameLoop = window.setInterval(function() {
         player.money.sleep = 0;
     };
     player.upgrade2.effect = OmegaNum.pow(3000, OmegaNum.pow(0.994, player.upgrade2.level));
-    if (player.upgrade3.bought == true) {
+    if (player.upgrade4.bought == true) {
         add();
     };
     if (isNaN(player.upgrade3.cost)) {
