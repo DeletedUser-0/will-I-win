@@ -111,10 +111,10 @@ function upgrade4() {
 };
 
 function upgrade5() {
-    if (OmegaNum.cmp(player.time, player.upgrade5.cost) >= 0) {
+    if (OmegaNum.cmp(player.money.total, player.upgrade5.cost) >= 0) {
         player.money.total = OmegaNum.sub(player.money.total, player.upgrade5.cost);
         player.upgrade5.level += 1;
-        player.upgrade5.cost = OmegaNum.mul(player.upgrade5.cost, 10)
+        player.upgrade5.cost = OmegaNum.mul(player.upgrade5.cost, 10);
         player.money.receive = OmegaNum.mul(player.money.receive, 2);
     };
 };
