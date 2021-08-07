@@ -93,15 +93,15 @@ function upgrade2() {
     };
 };
 
-function upgrade4() {
-    if (OmegaNum.cmp(player.time, player.upgrade4.cost) >= 0) {
-        player.upgrade4.level += 1;
-        player.upgrade4.cost = OmegaNum.mul(player.upgrade4.cost, 1.02).add(60);
+function upgrade3() {
+    if (OmegaNum.cmp(player.time, player.upgrade3.cost) >= 0) {
+        player.upgrade3.level += 1;
+        player.upgrade3.cost = OmegaNum.mul(player.upgrade3.cost, 1.02).add(60);
         player.money.receive = OmegaNum.mul(player.money.receive, 1.02);
     };
 };
 
-function upgrade3() {
+function upgrade4() {
     if (OmegaNum.cmp(player.money.total, 1000) >= 0) {
         if (player.upgrade4.bought == false) {
             player.money.total = player.money.total = OmegaNum.sub(player.money.total, 1000);
@@ -136,7 +136,7 @@ function reset() {
         player.upgrade2.effect = 3000;
         player.upgrade3.cost = 600;
         player.upgrade3.level = 0;
-        player.upgrade4.bought = 0;
+        player.upgrade4.bought = false;
         document.getElementById("upgrade4").style.backgroundColor = `white`;
         player.times = 0;
         player.time = 0;
