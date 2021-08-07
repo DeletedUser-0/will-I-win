@@ -48,29 +48,29 @@ var mainGameLoop = window.setInterval(function() {
 
     if (player.upgrade1.level > 0) {
         document.getElementById("upgrade2").style.display = "inline-block";
-        document.getElementById("upgrades").innerHTML = `You unlocked 2/5 upgrades.`;
+        document.getElementById("upgrades").innerHTML = `You've unlocked 2/5 upgrades.`;
     } else {
-        document.getElementById("upgrades").innerHTML = `You unlocked 1/5 upgrades.`;
+        document.getElementById("upgrades").innerHTML = `You've unlocked 1/5 upgrades.`;
         document.getElementById("upgrade2").style.display = "none";
     };
 
     if (player.upgrade2.level > 0) {
         document.getElementById("upgrade3").style.display = "inline-block";
-        document.getElementById("upgrades").innerHTML = `You unlocked 3/5 upgrades.`;
+        document.getElementById("upgrades").innerHTML = `You've unlocked 3/5 upgrades.`;
     } else {
         document.getElementById("upgrade3").style.display = "none";
     };
 
     if (player.upgrade3.level > 0) {
         document.getElementById("upgrade4").style.display = "inline-block";
-        document.getElementById("upgrades").innerHTML = `You unlocked 4/5 upgrades.`;
+        document.getElementById("upgrades").innerHTML = `You've unlocked 4/5 upgrades.`;
     } else {
         document.getElementById("upgrade4").style.display = "none";
     };
 
-    if (player.upgrade4.level > 0) {
+    if (player.upgrade4.bought == true) {
         document.getElementById("upgrade5").style.display = "inline-block";
-        document.getElementById("upgrades").innerHTML = `You unlocked 5/5 upgrades.`;
+        document.getElementById("upgrades").style.display = "none";
     } else {
         document.getElementById("upgrade5").style.display = "none";
     };
