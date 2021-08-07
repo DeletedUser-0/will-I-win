@@ -97,7 +97,7 @@ function upgrade3() {
     if (OmegaNum.cmp(player.time, player.upgrade3.cost) >= 0) {
         player.upgrade3.level += 1;
         player.upgrade3.cost = OmegaNum.mul(player.upgrade3.cost, 1.02).add(60);
-        player.money.receive = OmegaNum.mul(player.money.receive, OmegaNum.pow(1.02, OmegaNum.div(player.times, 100)));
+        player.money.receive = OmegaNum.mul(player.money.receive, OmegaNum.pow(1.02, OmegaNum.div(player.times, 200)));
     };
 };
 
