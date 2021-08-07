@@ -22,15 +22,15 @@ class Player {
             cost: data?.upgrade2?.cost || 10,
             level: data?.upgrade2?.level || 0,
             effect: data?.upgrade2?.effect || 3000,
-        };
+        };  
 
         this.upgrade3 = {
-            bought: data?.upgrade3?.bought || false,
+            cost: data?.upgrade3?.cost || 1800,
+            level: data?.upgrade3?.level || 0,
         };
 
         this.upgrade4 = {
-            cost: data?.upgrade4?.cost || 600,
-            level: data?.upgrade4?.level || 0,
+            bought: data?.upgrade4?.bought || false,
         };
 
         this.upgrade5 = {
@@ -56,8 +56,8 @@ var mainGameLoop = window.setInterval(function() {
     if (player.upgrade3.bought == true) {
         add();
     };
-    if (isNaN(player.upgrade4.cost)) {
-        player.upgrade4.cost = player.upgrade4.cost.array[0];
+    if (isNaN(player.upgrade3.cost)) {
+        player.upgrade3.cost = player.upgrade3.cost.array[0];
     };
     player.time = OmegaNum.add(player.time, 0.007);
     /// makes part of 1st upgrade
@@ -93,20 +93,20 @@ function upgrade2() {
     };
 };
 
-function upgrade3() {
-    if (OmegaNum.cmp(player.money.total, 1000) >= 0) {
-        if (player.upgrade3.bought == false) {
-            player.money.total = player.money.total = OmegaNum.sub(player.money.total, 1000);
-            player.upgrade3.bought = true
-        };
-    };
-};
-
 function upgrade4() {
     if (OmegaNum.cmp(player.time, player.upgrade4.cost) >= 0) {
         player.upgrade4.level += 1;
         player.upgrade4.cost = OmegaNum.mul(player.upgrade4.cost, 1.02).add(60);
         player.money.receive = OmegaNum.mul(player.money.receive, 1.02);
+    };
+};
+
+function upgrade3() {
+    if (OmegaNum.cmp(player.money.total, 1000) >= 0) {
+        if (player.upgrade4.bought == false) {
+            player.money.total = player.money.total = OmegaNum.sub(player.money.total, 1000);
+            player.upgrade4.bought = true
+        };
     };
 };
 
@@ -134,10 +134,10 @@ function reset() {
         player.upgrade2.cost = 10;
         player.upgrade2.level = 0;
         player.upgrade2.effect = 3000;
-        player.upgrade3.bought = false;
-        player.upgrade4.cost = 600;
-        player.upgrade4.level = 0;
-        document.getElementById("upgrade3").style.backgroundColor = `white`;
+        player.upgrade3.cost = 600;
+        player.upgrade3.level = 0;
+        player.upgrade4.bought = 0;
+        document.getElementById("upgrade4").style.backgroundColor = `white`;
         player.times = 0;
         player.time = 0;
         player.upgrade5.cost = 1e6;
