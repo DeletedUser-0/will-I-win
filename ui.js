@@ -26,21 +26,21 @@ var mainGameLoop = window.setInterval(function() {
     } else {
         document.getElementById("upgrade2").innerHTML = `Decrease waiting time (${Math.floor(player.upgrade2.effect)}ms) <br> Cost: ${notate(player.upgrade2.cost)}$ <br> Level: ${player.upgrade2.level}`;
     };
-    if (player.upgrade3.bought == false) {
-        document.getElementById("upgrade3").innerHTML = `Automatically tries to earn money <br> <br> Cost: ${notate(1000)}$`;
+    if (player.upgrade4.bought == false) {
+        document.getElementById("upgrade4").innerHTML = `Automatically tries to earn money <br> <br> Cost: ${notate(1000)}$`;
     } else {
-        document.getElementById("upgrade3").innerHTML = `Automatically tries to earn money <br> <br> Upgraded!`;
-        document.getElementById("upgrade3").style.backgroundColor = `lightgreen`;
+        document.getElementById("upgrade4").innerHTML = `Automatically tries to earn money <br> <br> Upgraded!`;
+        document.getElementById("upgrade4").style.backgroundColor = `lightgreen`;
     };
 
-    if ((player.upgrade4.cost >= 60) && (player.upgrade4.cost < 3600)) {
-        document.getElementById("upgrade4").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade4.cost / 60)} min ${Math.floor(player.upgrade4.cost % 60)} s <br> Level: ${Math.floor(player.upgrade4.level).toLocaleString("pt-PT")}`;
-    } else if ((player.upgrade4.cost >= 3600) && (player.upgrade4.cost < 86400)) {
-        document.getElementById("upgrade4").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade4.cost / 3600)} hr, ${Math.floor((player.upgrade4.cost / 60) % 60)} min and ${Math.floor(player.upgrade4.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade4.level).toLocaleString("pt-PT")}`;
-    } else if ((player.upgrade4.cost >= 86400) && (player.upgrade4.cost < 31536000)) {
-        document.getElementById("upgrade4").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade4.cost / 86400)} d ${Math.floor((player.upgrade4.cost / 3600) % 24)} hr ${Math.floor((player.upgrade4.cost / 60) % 60)} min and ${Math.floor(player.upgrade4.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade4.level).toLocaleString("pt-PT")}`;
+    if ((player.upgrade3.cost >= 60) && (player.upgrade3.cost < 3600)) {
+        document.getElementById("upgrade3").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade3.cost / 60)} min ${Math.floor(player.upgrade3.cost % 60)} s <br> Level: ${Math.floor(player.upgrade3.level).toLocaleString("pt-PT")}`;
+    } else if ((player.upgrade3.cost >= 3600) && (player.upgrade3.cost < 86400)) {
+        document.getElementById("upgrade3").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade3.cost / 3600)} hr, ${Math.floor((player.upgrade3.cost / 60) % 60)} min and ${Math.floor(player.upgrade3.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade3.level).toLocaleString("pt-PT")}`;
+    } else if ((player.upgrade3.cost >= 86400) && (player.upgrade3.cost < 31536000)) {
+        document.getElementById("upgrade3").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade3.cost / 86400)} d ${Math.floor((player.upgrade3.cost / 3600) % 24)} hr ${Math.floor((player.upgrade3.cost / 60) % 60)} min and ${Math.floor(player.upgrade3.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade3.level).toLocaleString("pt-PT")}`;
     } else {
-        document.getElementById("upgrade4").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade4.cost / 31536000)} y, ${Math.floor(player.upgrade4.cost / 86400) % 365} d, ${Math.floor((player.upgrade4.cost / 3600) % 24)} hr, ${Math.floor((player.upgrade4.cost / 60) % 60)} min and ${Math.floor(player.upgrade4.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade4.level).toLocaleString("pt-PT")}`;
+        document.getElementById("upgrade3").innerHTML = `Increase money receivement <br> Requirement: ${Math.floor(player.upgrade3.cost / 31536000)} y, ${Math.floor(player.upgrade3.cost / 86400) % 365} d, ${Math.floor((player.upgrade3.cost / 3600) % 24)} hr, ${Math.floor((player.upgrade3.cost / 60) % 60)} min and ${Math.floor(player.upgrade3.cost % 60)} sec <br> Level: ${Math.floor(player.upgrade3.level).toLocaleString("pt-PT")}`;
     }
     document.getElementById("upgrade5").innerHTML = `Receive twice as more money as you try to receive now <br> Cost: ${notate(player.upgrade5.cost)}$<br> Level: ${Math.floor(player.upgrade5.level).toLocaleString("pt-PT")}`;
 
